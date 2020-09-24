@@ -1,0 +1,74 @@
+.bold {
+  font-weight: bold;
+}
+
+.evenlySpaced5 table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.evenlySpaced5 th {
+  width: 20%;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.centerElement {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.whiteText {
+  color: white;
+}
+
+.darkBG {
+  background-color: rgb(31, 31, 31);
+}
+
+.text20px {
+  font-size: 20px;
+}
+
+.hoverPointer {
+  cursor: pointer;
+}
+
+.dataTableContainer {
+  overflow-y: scroll;
+  width: 1000px;
+  height: 750px;
+  margin: auto auto auto auto;
+}
+
+.fixedHeader th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: rgb(31, 31, 31);
+  padding-bottom: 5px;
+}
+
+.leftText {
+  text-align: left;
+}
+
+.bottomBorder {
+  border-bottom: 3px solid black;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00000013; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444444; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 1px solid #444444; /* creates padding around scroll thumb */
+}

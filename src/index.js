@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import DataTable from "./components/dataTableUSA";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <p>Im working on it :). Check Console</p>
+    <Header />
     <DataTable />
+    <Footer />
   </React.StrictMode>,
   document.getElementById("root")
 );
