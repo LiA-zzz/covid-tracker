@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import { fetchData } from "./scripts/fetchData";
+import DataTable from "./components/dataTableUSA";
 
 ReactDOM.render(
-  <React.StrictMode></React.StrictMode>,
+  <React.StrictMode>
+    <p>Im working on it :). Check Console</p>
+    <DataTable />
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
