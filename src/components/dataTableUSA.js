@@ -3,7 +3,7 @@ import { fetchUSAData } from "../scripts/fetchData";
 import "./styles.css";
 
 class DataTable extends Component {
-  state = { data: null, orderAsc: true };
+  state = { data: null, orderAsc: true, filter: false, filteredData: null };
 
   componentDidMount() {
     this._asyncFetch = fetchUSAData().then((data) => {
@@ -46,7 +46,21 @@ class DataTable extends Component {
     this.setState({ data: newData, orderAsc: !this.state.orderAsc });
   };
 
+  searchByName = (input) => {
+    console.log("filter!");
+    const newData = this.state.data.filter((entry) => {
+      return entry.Province_State.toLowerCase().includes(input.toLowerCase());
+    });
+    this.setState({
+      filter: input !== "" ? true : false,
+      filteredData: newData,
+    });
+  };
+
   render() {
+    const renderData = this.state.filter
+      ? this.state.filteredData
+      : this.state.data;
     if (this.state.data === null) {
       return (
         <div className="centerText whiteText">
@@ -56,6 +70,12 @@ class DataTable extends Component {
     } else {
       return (
         <div className="dataTableContainer">
+          <textarea
+            id="searchInput"
+            onChange={() =>
+              this.searchByName(document.getElementById("searchInput").value)
+            }
+          ></textarea>
           <table className="centerElement whiteText" cellSpacing="5">
             <thead className="fixedHeader leftText">
               <tr className="bold evenlySpaced5 text20px hoverPointer">
@@ -75,7 +95,7 @@ class DataTable extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.data.map((d) => {
+              {renderData.map((d) => {
                 return (
                   <tr key={d.Province_State}>
                     <td>{d.Province_State}</td>
