@@ -47,7 +47,6 @@ class DataTable extends Component {
   };
 
   searchByName = (input) => {
-    console.log("filter!");
     const newData = this.state.data.filter((entry) => {
       return entry.Province_State.toLowerCase().includes(input.toLowerCase());
     });
@@ -69,46 +68,62 @@ class DataTable extends Component {
       );
     } else {
       return (
-        <div className="dataTableContainer">
-          <textarea
-            id="searchInput"
-            onChange={() =>
-              this.searchByName(document.getElementById("searchInput").value)
-            }
-          ></textarea>
-          <table className="centerElement whiteText" cellSpacing="5">
-            <thead className="fixedHeader leftText">
-              <tr className="bold evenlySpaced5 text20px hoverPointer">
-                <th onClick={() => this.sortByAlpha("Province_State")}>
-                  State / Province
-                </th>
-                <th onClick={() => this.sortByNumerical("Confirmed")}>
-                  Confirmed Cases
-                </th>
-                <th onClick={() => this.sortByNumerical("Recovered")}>
-                  Recovered
-                </th>
-                <th onClick={() => this.sortByNumerical("Deaths")}>Deaths</th>
-                <th onClick={() => this.sortByNumerical("Last_Update")}>
-                  Last Update
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {renderData.map((d) => {
-                return (
-                  <tr key={d.Province_State}>
-                    <td>{d.Province_State}</td>
-                    <td>{d.Confirmed}</td>
-                    <td>{d.Recovered !== "" ? d.Recovered : "N/A"}</td>
-                    <td>{d.Deaths}</td>
-                    <td>{d.Last_Update}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+        <React.Fragment>
+          <div
+            className="centerText centerElement"
+            style={{ paddingBottom: 20 }}
+          >
+            <input
+              id="searchInput"
+              input="text"
+              placeholder="Enter a State or Province..."
+              className="siteFont grayBG darkerBorder noResize roundBorder thickBorder whiteText noOutline"
+              style={{
+                width: 350,
+                textAlign: "center",
+                height: 30,
+                fontSize: 15,
+              }}
+              onChange={() =>
+                this.searchByName(document.getElementById("searchInput").value)
+              }
+            ></input>
+          </div>
+          <div className="dataTableContainer centerText">
+            <table className="centerElement whiteText leftText" cellSpacing="5">
+              <thead className="fixedHeader">
+                <tr className="bold evenlySpaced5 text20px hoverPointer">
+                  <th onClick={() => this.sortByAlpha("Province_State")}>
+                    State / Province
+                  </th>
+                  <th onClick={() => this.sortByNumerical("Confirmed")}>
+                    Confirmed Cases
+                  </th>
+                  <th onClick={() => this.sortByNumerical("Recovered")}>
+                    Recovered
+                  </th>
+                  <th onClick={() => this.sortByNumerical("Deaths")}>Deaths</th>
+                  <th onClick={() => this.sortByNumerical("Last_Update")}>
+                    Last Update
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {renderData.map((d) => {
+                  return (
+                    <tr key={d.Province_State}>
+                      <td>{d.Province_State}</td>
+                      <td>{d.Confirmed}</td>
+                      <td>{d.Recovered !== "" ? d.Recovered : "N/A"}</td>
+                      <td>{d.Deaths}</td>
+                      <td>{d.Last_Update}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </React.Fragment>
       );
     }
   }

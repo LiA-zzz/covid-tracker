@@ -55,8 +55,38 @@
   text-align: left;
 }
 
+.noResize {
+  resize: none;
+}
+
+.noOutline {
+  outline: none;
+}
+
+.darkerBorder {
+  border-color: rgb(31, 31, 31);
+}
+
+.roundBorder {
+  border-radius: 5px;
+}
+
+.thickBorder {
+  border-width: 3px;
+}
+
+.grayBG {
+  background-color: gray;
+}
+
 .bottomBorder {
   border-bottom: 3px solid black;
+}
+
+.siteFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -71,4 +101,20 @@
   background-color: #444444; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 1px solid #444444; /* creates padding around scroll thumb */
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
 }
