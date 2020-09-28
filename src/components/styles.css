@@ -55,6 +55,10 @@
   text-align: left;
 }
 
+.rightText {
+  text-align: right;
+}
+
 .noResize {
   resize: none;
 }
@@ -117,4 +121,24 @@
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: white;
+}
+
+a:visited {
+  color: gray;
+}
+
+a:active {
+  color: gray;
+}
+
+a:hover {
+  color: white;
+}
+
+a {
+  transition: 500ms color;
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
